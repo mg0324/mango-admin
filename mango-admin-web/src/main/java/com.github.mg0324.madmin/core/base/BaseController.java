@@ -9,13 +9,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Description 基础controller
+ * @Date 2021-12-11 16:14
+ * @Created by mango
+ */
 public class BaseController {
     @Autowired
     protected HttpServletRequest request;
     @Autowired
     protected ResultUtil resultUtil;
 
-    protected Map<String,Object> getParamMap(){
+    /**
+     * 获取参数map
+     * @return
+     */
+    public Map<String,Object> getParamMap(){
         Map<String,Object> result = new HashMap<>();
         Map<String,String[]> pm = request.getParameterMap();
         for(String key : pm.keySet()){
@@ -31,11 +40,21 @@ public class BaseController {
         return result;
     }
 
-    protected String getPara(String key){
+    /**
+     * 获取参数
+     * @param key key
+     * @return
+     */
+    public String getPara(String key){
        return request.getParameter(key);
     }
 
-    protected Result validate(Object obj){
+    /**
+     * 校验对象
+     * @param obj
+     * @return
+     */
+    public Result validate(Object obj){
         List<String> vList = ValidUtil.validateAll(obj,true);
         if(vList != null && vList.size()>0){
             return resultUtil.error(vList.get(0));
