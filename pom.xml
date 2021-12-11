@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.mg0324</groupId>
+    <artifactId>mango-admin</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>mango-admin-core</module>
+        <module>mango-admin-mybatis-plus</module>
+        <module>mango-admin-swagger</module>
+        <module>mango-admin-redis</module>
+        <module>mango-admin-web</module>
+        <module>mango-admin-dependencies</module>
+    </modules>
+
+    <properties>
+        <mango-admin-dependencies-version>1.0.0</mango-admin-dependencies-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.mg0324</groupId>
+                <artifactId>mango-admin-dependencies</artifactId>
+                <version>${mango-admin-dependencies-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
